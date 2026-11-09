@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "cafeteria_505");
+$conexion = new mysqli("mysql.railway.internal", "root", "ZcHPFMKuFaazOHjDkxkVnlSjhRBRynmu", "railway");
 if ($conexion->connect_error) {
     die("Error de conexion: " . $conexion->connect_error);
 }
