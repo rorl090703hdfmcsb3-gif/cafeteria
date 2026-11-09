@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cafeteria Escolar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        header, footer {
+            background-color: #02ffc0;
+            color: #000000;
+            text-align: center;
+            padding: 15px;
+        }
+        .titulo {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            margin: auto;
+            gap: 10px;
+        }
+        .titulo img {
+            width: 65px;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .titulo h1 {
+            margin: 0;
+        }
+        .titulo p {
+            margin: 8px 0 0;
+        }
+        nav {
+            background-color: #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            margin: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        section {
+            background-color: white;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+        table {
+            width: 70%;
+            margin: 15px auto;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #02ffc0;
+            color: #000000;
+            padding: 10px;
+        }
+        td {
+            border: 1px solid #000000;
+            padding: 8px;
+            text-align: center;
+        }
+        form {
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            background-color: #89e7d0;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #333;
+        }
+        .btn-eliminar {
+            background-color: #02ffc0;
+            color: black;
+            padding: 6px 12px;
+            width: auto;
+            margin: 0;
+        }
+        .btn-eliminar:hover { background-color: #c9302c; color: white; }
+    </style>
+</head>
+<body>
+<header>
+    <div class="titulo">
+        <img src="cafeteria.jpg" alt="Cafeteria">
+        <div>
+            <h1>Cafeteria Escolar</h1>
+            <p>Alimentos y bebidas para estudiantes</p>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <a href="#menu">Menu</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<main>
+
+<section id="menu">
+    <h2>Menu</h2>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Hamburguesa</td><td>$45</td></tr>
+            <tr><td>Jugo</td><td>$20</td></tr>
+            <tr><td>Sandwich</td><td>$30</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="contacto">
+    <h2>Contacto</h2>
+    <!-- Agregado el ID 'formulario' para vincularlo con JS -->
+    <form id="formulario" action="index.php" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+        <br><br>
+        
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" placeholder="Escribe tu correo" required>
+        <br><br>
+
+        <label for="mensajeTexto">Mensaje:</label>
+        <textarea id="mensajeTexto" name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+        <br><br>
+
+        <button type="submit">Guardar</button>
+    </form>
+</section>
+
+<!-- Sección para eliminar escribiendo el correo manualmente -->
+<section id="eliminar-seccion">
+    <h2>Eliminar registro por correo</h2>
+    <form action="" method="POST" onsubmit="return confirm('¿Deseas eliminar este registro de la base de datos?');">
+        <input type="hidden" name="accion" value="eliminar">
+        <label for="CorreoEliminar">Correo Electrónico:</label>
+        <input type="email" id="CorreoEliminar" name="correo" placeholder="Escribe el correo a eliminar" required>
+        <br><br>
+        <button type="submit" style="background-color: #d9534f; color: white;">Eliminar de la Base de Datos</button>
+</section>
+</main>
+
+<footer>
+    <p>Cafeteria Escolar &copy; 2026</p>
+</footer>
+
+<script>
+document.getElementById("formulario").addEventListener("submit", function(event) {
+        
+    let nombre = document.getElementById("nombre").value.trim();
+    let correo = document.getElementById("correo").value.trim();
+    let mensaje = document.getElementById("mensajeTexto").value.trim();
+
+    if (nombre === "" || correo === "" || mensaje === "") {
+        event.preventDefault();
+        alert("Por favor, completa todos los campos.");
+        return;    
+    }
+
+});
+</script>
+</body>
+</html>
