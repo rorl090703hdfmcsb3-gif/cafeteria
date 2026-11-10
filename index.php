@@ -16,7 +16,7 @@ try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 
     // 1. LÓGICA PARA INSERTAR DATOS (Nombre, Correo, Mensaje)
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['accion']) && $_POST['accion'] == 'insertar') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nombre  = trim($_POST['nombre']);
         $correo  = trim($_POST['correo']);
         $mensaje = trim($_POST['mensaje']);
