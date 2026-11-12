@@ -1,7 +1,7 @@
 <?php
 // Conexión a la base de datos
 //$conexion = new mysqli("localhost", "root", "", "cafeteria_505");
-$conexion = new mysqli("localhost", "aguilacoffe_admin", "Cafeteria.505", "aguilacoffe_cafeteria");
+$conexion = new mysqli("mysql-aguilacoffe.alwaysdata.net", "aguilacoffe_admin", "Cafeteria.505", "aguilacoffe_cafeteria");
 if ($conexion->connect_error) {
     die("Error de conexion: " . $conexion->connect_error);
 }
